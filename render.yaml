@@ -9,12 +9,13 @@ services:
     buildCommand: "toy_app/bin/render-build.sh"
     startCommand: bundle exec rails s
     envVars:
-      RAILS_MASTER_KEY: ""
-      DATABASE_URL:
-        from:
-          Database:
-            name: postgres
-            property: connectingString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: postgres
+          property: connectionString
+
   - type: redis
     name: redis
     ipAllowList: []
