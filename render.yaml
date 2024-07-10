@@ -9,9 +9,9 @@ services:
     buildCommand: "toy_app/bin/render-build.sh"
     startCommand: bundle exec rails s
     envVars:
-      - key: RAILS_MASTER_KEY
+      RAILS_MASTER_KEY:
         sync: false
-      - key: DATABASE_URL
+      DATABASE_URL:
         from:
           Database:
             name: postgres
